@@ -1,4 +1,4 @@
-import { UserRepository } from '../Infrastracture/UserRepository'
+import { UserRepository } from '../../Infrastracture/UserRepository'
 
 test('find a user who exists', () => {
     const user = new UserRepository('a11')
