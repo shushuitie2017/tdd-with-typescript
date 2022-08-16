@@ -1,9 +1,9 @@
-class Duck {
-    quack() {}
-    fly() {}
+interface Duck {
+    quack(): string;
+    fly(): string;
 }
 
-export class WallerDuck extends Duck{
+export class WallerDuck implements Duck{
     quack() {
         return 'ガーガー'
     }
@@ -24,5 +24,19 @@ export class MildTurkey implements Turkey {
     }
     fly(){
         return '短い距離を飛んでいます'
+    }
+}
+
+class TurkeyAdaptor implements Duck {
+    turkey: Turkey
+    constructor(turkey: Turkey) {
+        this.turkey = turkey
+    }
+    quack(){
+        return this.turkey.gobble()
+    }
+
+    fly(): string {
+        return this.turkey.fly()
     }
 }
